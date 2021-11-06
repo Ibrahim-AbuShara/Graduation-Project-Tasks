@@ -8,7 +8,7 @@ SERVER = socket.gethostbyname(socket.gethostname()) #quire to get ip addrees din
 HEADER = 64 
 FORMAT ="UTF-8"
 ADDR=(SERVER,PORT) #make a tuple to save the port & the ip
-DISCONNECT_MESSAGE = "DISCONNECT"
+DISCONNECT_MESSAGE = "KILL"
 
 #---------------------------------------------------------------------
 server=socket.socket(socket.AF_INET, socket.SOCK_STREAM)#set the type of IP address we look for

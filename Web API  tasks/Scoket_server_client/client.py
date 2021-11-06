@@ -4,7 +4,7 @@ import socket
 HEADER = 64
 PORT = 5050
 FORMAT = 'utf-8'
-DISCONNECT_MESSAGE = "DISCONNECT"
+DISCONNECT_MESSAGE = "KILL"
 SERVER ="192.168.1.5" #here We should set the IP of the server manually
 ADDR=(SERVER,PORT)
 
@@ -21,7 +21,7 @@ def send(msg):
     send_length += b' ' * (HEADER - len(send_length))
     client.send(send_length)
     client.send(message)
-    print(client.recv(2048).decode(FORMAT))#to recve massage from the server
+    print(f"SERVER:{client.recv(2048).decode(FORMAT)}")#to recve massage from the server
 
 while True:
     massage=input()
