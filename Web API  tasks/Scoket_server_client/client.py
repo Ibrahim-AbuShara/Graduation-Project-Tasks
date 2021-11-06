@@ -15,13 +15,8 @@ client.connect(ADDR) # connect client to the server
 
 def send(msg):
     message = msg.encode(FORMAT)
-    #our protocol
-    msg_length = len(message)
-    send_length = str(msg_length).encode(FORMAT)
-    send_length += b' ' * (HEADER - len(send_length))
-    client.send(send_length)
     client.send(message)
-    print(f"SERVER:{client.recv(2048).decode(FORMAT)}")#to recve massage from the server
+    print(f"SERVER:{client.recv(1024).decode(FORMAT)}")#to recve massage from the server
 
 while True:
     massage=input()

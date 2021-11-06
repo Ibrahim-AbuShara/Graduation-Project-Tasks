@@ -19,9 +19,7 @@ def handel_client(conn,addr):
     print(f'[NEW CONNECTION] {addr} is connected!') #show the ip address of the new client
     coonnected =True 
     while coonnected:
-        msg_lengh=conn.recv(HEADER).decode(FORMAT) #recve client massage lengh on 64 bit and decode it on UTF-8
-        msg_lengh=int(msg_lengh) # get the real lenght of client massage
-        msg=conn.recv(msg_lengh).decode(FORMAT) #receve the masge on its fixed lengh
+        msg=conn.recv(1024).decode(FORMAT) 
         if msg == DISCONNECT_MESSAGE:
             print(f'{conn} is disconnected!')
             break
