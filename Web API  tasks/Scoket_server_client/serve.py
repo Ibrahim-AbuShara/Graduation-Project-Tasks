@@ -25,7 +25,7 @@ def handel_client(conn,addr):
             break
         else:
             print(f"{addr}:{msg}")
-            conn.send(input("SERVER: ").encode(FORMAT))
+            #conn.send(input("SERVER: ").encode(FORMAT))
     conn.close()
 
 
@@ -39,4 +39,3 @@ def start():
 
 print(f'[STARTING] server {SERVER} is starting..........................')
 start()
-
