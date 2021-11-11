@@ -13,19 +13,13 @@ client = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #difine the client
 client.connect(ADDR) # connect client to the server
 
 
-def send(msg):
-    message = msg.encode(FORMAT)
-    client.send(message)
-    #print(f"SERVER:{client.recv(1024).decode(FORMAT)}")#to recve massage from the server
+def rec():
+    print(f"SERVER:{client.recv(1024).decode(FORMAT)}")#to recve massage from the server
 
 while True:
-    massage="Hi from pc"
-    if massage!=DISCONNECT_MESSAGE:
-        send(massage)
-    else:
-        send(massage)
-        quit()
-
+    
+        rec()
+    
 
 
         

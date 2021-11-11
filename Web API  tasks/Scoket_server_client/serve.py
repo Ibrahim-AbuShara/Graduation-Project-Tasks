@@ -14,21 +14,19 @@ DISCONNECT_MESSAGE = "KILL"
 server=socket.socket(socket.AF_INET, socket.SOCK_STREAM)#set the type of IP address we look for
 server.bind(ADDR) #to make any deivice that tring to reach the server to hit this socket
 
-
 def handel_client(conn,addr):
     print(f'[NEW CONNECTION] {addr} is connected!') #show the ip address of the new client
+    temp=[0]
     coonnected =True 
     while coonnected:
         msg=conn.recv(1024).decode(FORMAT) 
-        if msg == DISCONNECT_MESSAGE:
-            print(f'{conn} is disconnected!')
-            break
+        if msg.isdigit():
+                temp.append(msg)
         else:
-            print(f"{addr}:{msg}")
-            #conn.send(input("SERVER: ").encode(FORMAT))
-    conn.close()
-
-
+                print(f"{addr}:{msg}")
+        server.listen()
+        for i in temp:
+            conn.send(str(i).encode(FORMAT))       
 def start():
     server.listen() #weting for client acction
     while True:

@@ -111,7 +111,7 @@ bool getTemperature() {
       comfortStatus = "Unknown:";
       break;
   };
-  client.print(" T:" + String(newValues.temperature) + " H:" + String(newValues.humidity) + " I:" + String(heatIndex) + " D:" + String(dewPoint) + " " + comfortStatus);
+  client.print( String(newValues.temperature) );
   Serial.println(" T:" + String(newValues.temperature) + " H:" + String(newValues.humidity) + " I:" + String(heatIndex) + " D:" + String(dewPoint) + " " + comfortStatus);
 	return true;
 }
@@ -130,7 +130,7 @@ void setup(){
   
   if (!client.connect(host, port)) {
  
-        client.println("Connection to host failed");
+        Serial.println("Connection to host failed");
  
         delay(500);
         return;
