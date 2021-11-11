@@ -1,5 +1,4 @@
 #include <WiFi.h>
- 
 const char* ssid = "ORAHA";
 const char* password =  "AAssDDff";
  
@@ -10,7 +9,6 @@ void setup()
 {
  
   Serial.begin(115200);
- 
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
