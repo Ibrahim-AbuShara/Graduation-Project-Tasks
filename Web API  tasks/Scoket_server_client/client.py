@@ -13,13 +13,10 @@ client = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #difine the client
 client.connect(ADDR) # connect client to the server
 
 
-def rec():
-    print(f"SERVER:{client.recv(1024).decode(FORMAT)}")#to recve massage from the server
+   
 
-while True:
     
-        rec()
-    
+print(client.recv(2048).decode(FORMAT))    
 
 
         
