@@ -1,13 +1,48 @@
 {% load bootstrap4 %}
+{% load static %}
+
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/iris.jpg'%}">
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'c/mystyle.css' %} ">
+
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+</head>
 
 
 
-<h2> Fill in the following blanks </h2>
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {% bootstrap_form form %}
-    {% buttons %}
-        <button class="boxed-btn3 w-100" type="submit"> Test Now </button>
-    {% endbuttons %}
- 
- </form>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xl-12">
+            <img class="card-img-top" src="{% static 'img/iris.jpg' %}"alt="">
+        </div>
+     </div>
+</div>
+
+
+
+
+<div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto ">
+                <div class="col-xl-6 col-lg-7">
+                    <div class="bradcam_text">
+                       <br><br> <h2> Fill in the following blanks </h2> <br>
+                    </div>
+                    <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {% bootstrap_form form %}
+                            {% buttons %}
+                                <button class="boxed-btn3 w-50" type="submit"> Test Now </button> 
+                            {% endbuttons %}
+                            <br><br>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+</div>
+
