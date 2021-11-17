@@ -5,7 +5,7 @@ from statistics import mean
 #define constants 
 PORT = 5050
 SERVER ="192.168.1.6"
-ESP_Ip='192.168.1.12' 
+ESP_Ip='192.168.1.3' 
 #SERVER = socket.gethostbyname(socket.gethostname()) #quire to get ip addrees dinamcly
 HEADER = 64 
 FORMAT ="UTF-8"
@@ -19,9 +19,9 @@ server.bind(ADDR) #to make any deivice that tring to reach the server to hit thi
 
 #----------------------------------------------------------------------------------------
 def Esp_32(conn,addr):
-    print(f'[NEW CONNECTION] {addr} is connected!') #show the ip address of the new client
+    print(f'[ESP32 {addr} is connected!') #show the ip address of the new client
     temp=[]
-    t_end = time.time() + 30 #listen from Esp for 30 sec
+    t_end = time.time() + 15 #listen from Esp for 30 sec
     while time.time() < t_end:
         msg=conn.recv(1024).decode(FORMAT)
         if msg !='\r\n' : #remove sesor bugs
@@ -36,11 +36,12 @@ def Esp_32(conn,addr):
 print(f'[STARTING] server {SERVER} is starting..........................')
 while True:
     server.listen() #weting for client acction
+    
     conn , addr =server.accept() #accept client action and block anther reqests till the prosses compleat
-    print(addr[0])
     if str(addr[0]) == ESP_Ip:
         thread=threading.Thread(target=Esp_32,args=(conn,addr)) #call handel_client method in a thred
         thread.start()
     else:
         App_Client=conn
-        print(type(App_Client))
+        print('App {addr} is conected!')
+        
