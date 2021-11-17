@@ -1,44 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class dashboard extends StatefulWidget {
-
-  @override
-  _dashboardState createState() => _dashboardState();
-}
-
-class _dashboardState extends State<dashboard> {
+class dashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    dynamic heat = ModalRoute.of(context)!.settings.arguments;
+    print(heat['heat']);
     return Scaffold(
-      backgroundColor: Color.fromRGBO(229, 235, 238, 1.0),
+      backgroundColor: const Color.fromRGBO(229, 235, 238, 1.0),
       appBar: AppBar(
         backgroundColor: Colors.blue[800],
-        title: Text('Diagnose'),
+        title: const Text('Diagnose'),
         centerTitle: true,
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(vertical: 30.0,horizontal: 10.0),
+        padding: const EdgeInsets.symmetric(vertical: 30.0,horizontal: 10.0),
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
               Row(
-                children: const <Widget>[
+                children: <Widget>[
                   Expanded(
                     child: Material(
                       elevation: 10.0,
-                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                      borderRadius: const BorderRadius.all(Radius.circular(20.0)),
                       child: SizedBox(
                         height: 150.0,
                         child: ListTile(
                           minVerticalPadding: 20.0,
-                          contentPadding: EdgeInsets.fromLTRB(10.0, 10.0, 0, 10.0),
-                          shape: RoundedRectangleBorder(
+                          contentPadding: const EdgeInsets.fromLTRB(10.0, 10.0, 0, 10.0),
+                          shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(20.0)),
                           ),
-                          tileColor: Color.fromRGBO(255, 255, 255, 1.0),
-                          title: Padding(
+                          tileColor: const Color.fromRGBO(255, 255, 255, 1.0),
+                          title: const Padding(
                             padding: EdgeInsets.fromLTRB(0, 0, 0, 10.0),
                             child: Text(
                               'Body Temperature',
@@ -49,14 +45,14 @@ class _dashboardState extends State<dashboard> {
                               ),
                             ),
                           ),
-                          leading: Icon(
+                          leading: const Icon(
                             FontAwesomeIcons.fireAlt,
                             color: Color.fromRGBO(205, 10, 10, 1.0),
                             size: 40.0,
                           ),
                           subtitle: Text(
-                            '---',
-                            style: TextStyle(
+                            heat['heat'].toString(),
+                            style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 30.0,
                               color: Colors.black87,
@@ -66,39 +62,39 @@ class _dashboardState extends State<dashboard> {
                       ),
                     ),
                   ),
-                  SizedBox(width: 10.0,),
+                  const SizedBox(width: 10.0,),
                   Expanded(
                     child: Material(
                       elevation: 10.0,
-                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                      borderRadius: const BorderRadius.all(Radius.circular(20.0)),
                       child: SizedBox(
                         height: 150.0,
                         child: ListTile(
                           minVerticalPadding: 20.0,
-                          contentPadding: EdgeInsets.fromLTRB(10.0, 10.0, 0, 10.0),
-                          shape: RoundedRectangleBorder(
+                          contentPadding: const EdgeInsets.fromLTRB(10.0, 10.0, 0, 10.0),
+                          shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(20.0)),
                           ),
-                          tileColor: Color.fromRGBO(255, 255, 255, 1.0),
-                          title: Padding(
+                          tileColor: const Color.fromRGBO(255, 255, 255, 1.0),
+                          title: const Padding(
                             padding: EdgeInsets.fromLTRB(0, 0, 0, 10.0),
                             child: Text(
                               'heart beat rate',
-                              style: TextStyle(
+                              style:  TextStyle(
                                 color: Colors.black,
                                 fontSize: 16.0,
                                 letterSpacing: 2.0,
                               ),
                             ),
                           ),
-                          leading: Icon(
+                          leading: const Icon(
                             FontAwesomeIcons.heartbeat,
                             color: Color.fromRGBO(205, 10, 10, 1.0),
                             size: 40.0,
                           ),
                           subtitle: Text(
-                            '40',
-                            style: TextStyle(
+                            heat['heat'].toString(),
+                            style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 30.0,
                               color: Colors.black87,
@@ -110,7 +106,95 @@ class _dashboardState extends State<dashboard> {
                   ),
                 ],
               ),
-              SizedBox(height: 20.0,),
+              const SizedBox(height: 20.0,),
+              Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Material(
+                      elevation: 10.0,
+                      borderRadius: const BorderRadius.all(Radius.circular(20.0)),
+                      child: SizedBox(
+                        height: 150.0,
+                        child: ListTile(
+                          minVerticalPadding: 20.0,
+                          contentPadding: const EdgeInsets.fromLTRB(10.0, 10.0, 0, 10.0),
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                          ),
+                          tileColor: const Color.fromRGBO(255, 255, 255, 1.0),
+                          title: const Padding(
+                            padding: EdgeInsets.fromLTRB(0, 0, 0, 10.0),
+                            child: Text(
+                              'Body Temperature',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 16.0,
+                                letterSpacing: 2.0,
+                              ),
+                            ),
+                          ),
+                          leading: const Icon(
+                            FontAwesomeIcons.fireAlt,
+                            color: Color.fromRGBO(205, 10, 10, 1.0),
+                            size: 40.0,
+                          ),
+                          subtitle: Text(
+                            heat['heat'].toString(),
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 30.0,
+                              color: Colors.black87,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 10.0,),
+                  Expanded(
+                    child: Material(
+                      elevation: 10.0,
+                      borderRadius: const BorderRadius.all(Radius.circular(20.0)),
+                      child: SizedBox(
+                        height: 150.0,
+                        child: ListTile(
+                          minVerticalPadding: 20.0,
+                          contentPadding: const EdgeInsets.fromLTRB(10.0, 10.0, 0, 10.0),
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                          ),
+                          tileColor: const Color.fromRGBO(255, 255, 255, 1.0),
+                          title: const Padding(
+                            padding: EdgeInsets.fromLTRB(0, 0, 0, 10.0),
+                            child: Text(
+                              'heart beat rate',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 16.0,
+                                letterSpacing: 2.0,
+                              ),
+                            ),
+                          ),
+                          leading: const Icon(
+                            FontAwesomeIcons.heartbeat,
+                            color: Color.fromRGBO(205, 10, 10, 1.0),
+                            size: 40.0,
+                          ),
+                          subtitle: Text(
+                            heat['heat'].toString(),
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 30.0,
+                              color: Colors.black87,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20.0,),
               Row(
                 children: const <Widget>[
                   Expanded(
@@ -129,94 +213,6 @@ class _dashboardState extends State<dashboard> {
                           title: Padding(
                             padding: EdgeInsets.fromLTRB(0, 0, 0, 10.0),
                             child: Text(
-                              'Body Temperature',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 16.0,
-                                letterSpacing: 2.0,
-                              ),
-                            ),
-                          ),
-                          leading: Icon(
-                            FontAwesomeIcons.fireAlt,
-                            color: Color.fromRGBO(205, 10, 10, 1.0),
-                            size: 40.0,
-                          ),
-                          subtitle: Text(
-                            '42',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 30.0,
-                              color: Colors.black87,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 10.0,),
-                  Expanded(
-                    child: Material(
-                      elevation: 10.0,
-                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                      child: SizedBox(
-                        height: 150.0,
-                        child: ListTile(
-                          minVerticalPadding: 20.0,
-                          contentPadding: EdgeInsets.fromLTRB(10.0, 10.0, 0, 10.0),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                          ),
-                          tileColor: Color.fromRGBO(255, 255, 255, 1.0),
-                          title: Padding(
-                            padding: EdgeInsets.fromLTRB(0, 0, 0, 10.0),
-                            child: Text(
-                              'heart beat rate',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 16.0,
-                                letterSpacing: 2.0,
-                              ),
-                            ),
-                          ),
-                          leading: Icon(
-                            FontAwesomeIcons.heartbeat,
-                            color: Color.fromRGBO(205, 10, 10, 1.0),
-                            size: 40.0,
-                          ),
-                          subtitle: Text(
-                            '40',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 30.0,
-                              color: Colors.black87,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 20.0,),
-              Row(
-                children: const <Widget>[
-                  Expanded(
-                    child: Material(
-                      elevation: 10.0,
-                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                      child: SizedBox(
-                        height: 150.0,
-                        child: ListTile(
-                          minVerticalPadding: 20.0,
-                          contentPadding: EdgeInsets.fromLTRB(10.0, 10.0, 0, 10.0),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                          ),
-                          tileColor: Color.fromRGBO(255, 255, 255, 1.0),
-                          title: Padding(
-                            padding: EdgeInsets.fromLTRB(0, 0, 0, 10.0),
-                            child: Text(
                               'heart beat rate',
                               style: TextStyle(
                                 color: Colors.black,
@@ -286,7 +282,7 @@ class _dashboardState extends State<dashboard> {
                   ),
                 ],
               ),
-              SizedBox(height: 30.0,),
+              const SizedBox(height: 30.0,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -298,7 +294,7 @@ class _dashboardState extends State<dashboard> {
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(30.0)),
                       ),
-                      padding: EdgeInsets.symmetric(horizontal: 50.0,vertical: 10.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 50.0,vertical: 10.0),
                     ),
                     onPressed: () {
                       Navigator.pushReplacementNamed(context, '/dashboard');
@@ -317,3 +313,4 @@ class _dashboardState extends State<dashboard> {
     );
   }
 }
+

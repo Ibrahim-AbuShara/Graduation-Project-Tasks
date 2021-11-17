@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'dart:convert';
+import 'dart:io';
 
 class loading extends StatefulWidget {
   @override
@@ -8,16 +10,23 @@ class loading extends StatefulWidget {
 
 class _loadingState extends State<loading> {
 
-  void fakesync() async{
-    await Future.delayed(const Duration(seconds: 3), (){
-      Navigator.pushReplacementNamed(context, '/dashboard');
-    });
+  var newdata = {
+    'heat':''
+  };
+  main() async {
+    final client = await Socket.connect('192.168.1.5', 5050);
+    client.listen(
+            (var data) => newdata['heat'] = (utf8.decode(data).trim().toString()),
+        onDone: () {Navigator.pushReplacementNamed(context, '/dashboard', arguments: newdata); print(newdata['heat']);},
+        onError: (e) { print('Got error $e'); client.close(); });
+    client.write('connected to server');
+    client.close();
   }
 
   @override
   void initState(){
     super.initState();
-    fakesync();
+    main();
   }
 
   @override
