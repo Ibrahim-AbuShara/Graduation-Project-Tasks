@@ -7,6 +7,6 @@ from . import views
 app_name='Ires_app'
 urlpatterns = [
     
-    path('',views.Iris, name='Iris_app'),
+    path('',views.Iris, name='Iris_App'),
     
 ]
