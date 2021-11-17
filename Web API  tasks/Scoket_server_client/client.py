@@ -5,7 +5,7 @@ HEADER = 64
 PORT = 5050
 FORMAT = 'utf-8'
 DISCONNECT_MESSAGE = "KILL"
-SERVER ="192.168.1.6" #here We should set the IP of the server manually
+SERVER ="192.168.1.5" #here We should set the IP of the server manually
 ADDR=(SERVER,PORT)
 
 #-----------------------------------------------------------------------------------------------------------------
