@@ -1,11 +1,8 @@
 from django.db import models
 
 # Create your models here.
-
-from django.db import models
-
-# Create your models here.
 class Iris_model(models.Model):
+    id = models.AutoField (primary_key=True)
     SepalLengthCm=models.FloatField()
     SepalWidthCm=models.FloatField()
     PetalLengthCm=models.FloatField()
