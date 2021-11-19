@@ -1,7 +1,7 @@
 import socket
 import time
 # take the server name and port name
-host = '192.168.1.6' #enter your local ip address
+host = '192.168.1.5' #enter your local ip address
 port = 5050
 
 # create a socket at server side
@@ -25,8 +25,8 @@ c, addr = s.accept()
 # display client address
 print("CONNECTION FROM:", str(addr))
 
-msg = "A7A.............." #enter any msg
-time.sleep(10) #sleep for 10 seconds
+msg = '50' #enter any msg
+time.sleep(3) #sleep for 10 seconds
 c.send(msg.encode('utf-8'))
 # disconnect the server
 c.close()
