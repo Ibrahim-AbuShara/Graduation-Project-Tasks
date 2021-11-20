@@ -15,25 +15,18 @@ def Iris(request):
   
      
           dictionary ={
-          'Sepal Length Cm' : myform.SepalLengthCm,
-          'Sepal Width Cm' : myform.SepalWidthCm,
-          'Petal Length Cm' : myform.PetalLengthCm,
-          'Petal Width Cm' : myform.PetalWidthCm,
+          'SepalLengthCm' : myform.SepalLengthCm,
+          'SepalWidthCm' : myform.SepalWidthCm,
+          'PetalLengthCm' : myform.PetalLengthCm,
+          'PetalWidthCm' : myform.PetalWidthCm,
+          
    
-          }
+          }#Amira's clown code 
           
           # Serializing json 
           json_object = json.dumps(dictionary, indent = 4)
-          print (type(json_object))
-
-
-          response = requests.post('https://httpbin.org/post', data= json_object)
-          requests.put('https://httpbin.org/put', data = json_object )
-          print(response.json)
-
-
-
-
+          print (json_object)
+          response = requests.post('http://localhost:8000/api/ml', data= json_object , headers = {"HTTP_HOST": "MyVeryOwnHost",'Content-Type': 'application/json' ,'charset':'utf-8'})
 
           return redirect (reverse('Iris_app:Iris_App'))
 
