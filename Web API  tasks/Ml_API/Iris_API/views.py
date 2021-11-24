@@ -53,4 +53,9 @@ def predict_list(request):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)       
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)  
+@api_view(['GET'])
+def get_predict(request,proces_id):
+    predict = Iris_prediction.objects.get(proces_id=proces_id)
+    serializer = IrisPredticionSerializer(predict).data
+    return Response(serializer)     

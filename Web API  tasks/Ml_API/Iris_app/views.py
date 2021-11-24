@@ -3,7 +3,7 @@ from django.urls import reverse
 from .form import Iris_Form
 import json
 import requests
-
+from time import sleep
 
 # Create your views here.
 def Iris(request):
@@ -19,7 +19,7 @@ def Iris(request):
           'SepalWidthCm' : myform.SepalWidthCm,
           'PetalLengthCm' : myform.PetalLengthCm,
           'PetalWidthCm' : myform.PetalWidthCm,
-          
+          'proces_id'    :myform.id,
    
           }#Amira's clown code 
           
@@ -27,8 +27,8 @@ def Iris(request):
           json_object = json.dumps(dictionary, indent = 4)
           print (json_object)
           response = requests.post('http://localhost:8000/api/ml', data= json_object , headers = {"HTTP_HOST": "MyVeryOwnHost",'Content-Type': 'application/json' ,'charset':'utf-8'})
-
-          return redirect (reverse('Iris_app:Iris_App'))
+          get=requests.get(f'http://localhost:8000/api/predict/{myform.id}').json()
+          return render(request,'Iris_app/index.html',{'get':get,'form':form})
 
  else:
       form=Iris_Form()

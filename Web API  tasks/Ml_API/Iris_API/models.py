@@ -17,5 +17,6 @@ class Iris_prediction(models.Model):
     SepalWidthCm=models.FloatField()
     PetalLengthCm=models.FloatField()
     PetalWidthCm=models.FloatField()
+    proces_id=models.IntegerField( null=True, blank=True)
     Species=models.CharField(max_length=50, null=True, blank=True)
     

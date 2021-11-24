@@ -4,10 +4,9 @@
 <head>
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/iris.jpg'%}">
     <!-- CSS here -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'c/mystyle.css' %} ">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
 
@@ -22,27 +21,59 @@
      </div>
 </div>
 
-
-
-
 <div class="container">
         <div class="row">
-            <div class="col-lg-10 mx-auto ">
+            <div class="col-sm  ">
                 <div class="col-xl-6 col-lg-7">
                     <div class="bradcam_text">
-                       <br><br> <h2> Fill in the following blanks </h2> <br>
+                       <br><br> <h2> Enter the fitures </h2> <br>
                     </div>
                     <form method="POST" enctype="multipart/form-data">
                             {% csrf_token %}
                             {% bootstrap_form form %}
                             {% buttons %}
-                                <button class="boxed-btn3 w-50" type="submit"> Test Now </button> 
-                            {% endbuttons %}
-                            <br><br>
-                        
+                            <button type="submit" value="Submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Submit</button>    
+                                
+                            {% endbuttons %}    
                     </form>
-                </div>
-            </div>
+                          
+                        </div>
+                      </div>
+                      <div class="col-lg-6 my-sm-auto">
+                        <div class="card" style="border-radius: 20x;">
+                          <div class="card-body p-4">
+                            <div class="d-flex text-black">
+                              <div class="flex-shrink-0 mx-1">
+                                <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-profiles/avatar-1.jpg" alt="Generic placeholder image" class="img-fluid" style="width: 180px; border-radius: 10px;">
+                              </div>
+                              <div class="flex-grow-1 mx-auto my-3">
+                                <h5 class="mb-1">{{get.Species}}</h5>
+                                
+                                <div class="d-flex justify-content-start rounded-3 p-2 mb-2 my-2" style="background-color: #efefef;">
+                                  <div>
+                                    <p class="small text-muted mb-1">SepalLength</p>
+                                    <p class="mb-0">{{get.SepalLengthCm}}</p>
+                                  </div>
+                                  <div class="px-3">
+                                    <p class="small text-muted mb-1">SepalWidth</p>
+                                    <p class="mb-0">{{get.SepalWidthCm}}</p>
+                                  </div>
+                                  <div>
+                                    <p class="small text-muted mb-1">PetalLength</p>
+                                    <p class="mb-0">{{get.PetalLengthCm}}</p>
+                                  </div>
+                                  <div>
+                                    <p class="small text-muted mb-1">PetalWidth</p>
+                                    <p class="mb-0">{{get.PetalWidthCm}}</p>
+                                  </div>
+                                </div>
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
         </div>
 </div>
 
+                   
