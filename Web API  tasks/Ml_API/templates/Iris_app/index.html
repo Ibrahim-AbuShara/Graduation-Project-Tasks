@@ -24,7 +24,7 @@
 <div class="container">
         <div class="row">
             <div class="col-sm  ">
-                <div class="col-xl-6 col-lg-7">
+                <div class="col-xl-9 col-lg-7">
                     <div class="bradcam_text">
                        <br><br> <h2> Enter the fitures </h2> <br>
                     </div>
@@ -39,13 +39,36 @@
                           
                         </div>
                       </div>
-                      <div class="col-lg-6 my-sm-auto">
+                      <div class="col-lg-8 my-sm-auto">
                         <div class="card" style="border-radius: 20x;">
                           <div class="card-body p-4">
                             <div class="d-flex text-black">
+
+                              {%if get.Species == "Iris-virginica" %}
                               <div class="flex-shrink-0 mx-1">
-                                <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-profiles/avatar-1.jpg" alt="Generic placeholder image" class="img-fluid" style="width: 180px; border-radius: 10px;">
+                                <img src="{% static 'img/Iris-virginica.jpg' %}" alt="Generic placeholder image" class="img-fluid" style="width: 420px; border-radius: 10px;">
                               </div>
+
+                              {%elif get.Species == "Iris-setosa" %}
+                              <div class="flex-shrink-0 mx-1">
+                                <img src="{% static 'img/Iris-setosa.jpg' %}" alt="Generic placeholder image" class="img-fluid" style="width: 420px; border-radius: 10px;">
+                              </div>
+
+                              {%elif get.Species == "Iris-versicolor" %}
+                              <div class="flex-shrink-0 mx-1">
+                                <img src="{% static 'img/Iris-versicolor.jpg' %}" alt="Generic placeholder image" class="img-fluid" style="width: 420px; border-radius: 10px;">
+                              </div>
+
+                              {%else %}
+                              <div class="flex-shrink-0 mx-1">
+                                <img src="{% static 'img/irises.png' %}" alt="Generic placeholder image" class="img-fluid" style="width: 420px; border-radius: 10px;">
+                              </div>
+
+
+                              {%endif%}
+
+
+
                               <div class="flex-grow-1 mx-auto my-3">
                                 <h5 class="mb-1">{{get.Species}}</h5>
                                 
@@ -76,5 +99,3 @@
                       </div>
         </div>
 </div>
-
-                   
