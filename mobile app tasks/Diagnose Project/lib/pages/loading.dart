@@ -17,7 +17,7 @@ class _loadingState extends State<loading> {
     final client = await Socket.connect('192.168.1.5', 5050);
     client.listen(
             (var data) => newdata.add(utf8.decode(data).toString()),
-        onDone: () { print(newdata[0]); print(newdata); Navigator.pushReplacementNamed(context, '/dashboard', arguments: newdata);},
+        onDone: () { print(newdata[0]); print(newdata); Navigator.pushReplacementNamed(context, '/dashboard', arguments: newdata); client.close();},
         onError: (e) { print('Got error $e'); client.close(); });
     client.write('main done');
     client.close();
