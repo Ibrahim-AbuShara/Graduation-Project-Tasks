@@ -14,14 +14,14 @@ class _dashboardState extends State<dashboard> {
     dynamic data = ModalRoute.of(context)!.settings.arguments;
     print(data);
     return Scaffold(
-      backgroundColor: Color.fromRGBO(229, 235, 238, 1.0),
+      backgroundColor: const Color.fromRGBO(229, 235, 238, 1.0),
       appBar: AppBar(
         backgroundColor: Colors.blue[800],
-        title: Text('Diagnose'),
+        title: const Text('Diagnose'),
         centerTitle: true,
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(vertical: 30.0,horizontal: 10.0),
+        padding: const EdgeInsets.symmetric(vertical: 30.0,horizontal: 10.0),
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
@@ -30,17 +30,17 @@ class _dashboardState extends State<dashboard> {
                   Expanded(
                     child: Material(
                       elevation: 10.0,
-                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                      borderRadius: const BorderRadius.all(Radius.circular(20.0)),
                       child: SizedBox(
                         height: 150.0,
                         child: ListTile(
                           minVerticalPadding: 20.0,
-                          contentPadding: EdgeInsets.fromLTRB(10.0, 10.0, 0, 10.0),
-                          shape: RoundedRectangleBorder(
+                          contentPadding: const EdgeInsets.fromLTRB(10.0, 10.0, 0, 10.0),
+                          shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(20.0)),
                           ),
-                          tileColor: Color.fromRGBO(255, 255, 255, 1.0),
-                          title: Padding(
+                          tileColor: const Color.fromRGBO(255, 255, 255, 1.0),
+                          title: const Padding(
                             padding: EdgeInsets.fromLTRB(0, 0, 0, 10.0),
                             child: Text(
                               'Body Temperature',
@@ -51,14 +51,14 @@ class _dashboardState extends State<dashboard> {
                               ),
                             ),
                           ),
-                          leading: Icon(
+                          leading: const Icon(
                             FontAwesomeIcons.fireAlt,
                             color: Color.fromRGBO(205, 10, 10, 1.0),
                             size: 40.0,
                           ),
                           subtitle: Text(
                             data[0],
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 30.0,
                               color: Colors.black87,
@@ -68,8 +68,8 @@ class _dashboardState extends State<dashboard> {
                       ),
                     ),
                   ),
-                  SizedBox(width: 10.0,),
-                  Expanded(
+                  const SizedBox(width: 10.0,),
+                  const Expanded(
                     child: Material(
                       elevation: 10.0,
                       borderRadius: BorderRadius.all(Radius.circular(20.0)),
@@ -112,7 +112,7 @@ class _dashboardState extends State<dashboard> {
                   ),
                 ],
               ),
-              SizedBox(height: 20.0,),
+              const SizedBox(height: 20.0,),
               Row(
                 children: const <Widget>[
                   Expanded(
@@ -200,7 +200,7 @@ class _dashboardState extends State<dashboard> {
                   ),
                 ],
               ),
-              SizedBox(height: 20.0,),
+              const SizedBox(height: 20.0,),
               Row(
                 children: const <Widget>[
                   Expanded(
@@ -288,7 +288,7 @@ class _dashboardState extends State<dashboard> {
                   ),
                 ],
               ),
-              SizedBox(height: 30.0,),
+              const SizedBox(height: 30.0,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -300,7 +300,7 @@ class _dashboardState extends State<dashboard> {
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(30.0)),
                       ),
-                      padding: EdgeInsets.symmetric(horizontal: 50.0,vertical: 10.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 50.0,vertical: 10.0),
                     ),
                     onPressed: () {
                       Navigator.pushReplacementNamed(context, '/dashboard');
